@@ -11,8 +11,8 @@ import type { JsonFormatterIndent } from 'src/utils/formatJson';
 
 SyntaxHighlighter.registerLanguage('json', json);
 
-const BUTTON_CLASS_NAME =
-  'flex h-9 cursor-pointer items-center justify-center rounded-md border border-slate-300 bg-slate-50 px-4 text-center text-sm font-medium text-slate-800 shadow-xs transition-all hover:border-slate-800 focus:border-slate-800 focus:bg-slate-50 active:border-slate-800 active:bg-slate-50 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-500 dark:focus:border-slate-500 dark:focus:bg-slate-800 dark:active:border-slate-500 dark:active:bg-slate-800';
+const COPY_BUTTON_CLASS_NAME =
+  'flex h-9 cursor-pointer items-center justify-center rounded-md border border-slate-900 bg-slate-900 px-4 text-center text-sm font-medium text-white shadow-xs transition-all hover:bg-slate-700 focus:bg-slate-700 active:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-300 dark:focus:bg-slate-300 dark:active:bg-slate-300';
 
 const SEGMENT_BUTTON_CLASS_NAME =
   'flex cursor-pointer items-center justify-center px-4 text-center text-sm font-medium transition-colors';
@@ -87,7 +87,7 @@ export function JsonFormatter() {
         <label className="flex items-center gap-2 text-sm font-medium text-slate-800 dark:text-slate-200">
           Indent
           <select
-            className="h-9 rounded-md border border-slate-300 bg-slate-50 px-2 text-sm text-slate-800 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+            className="h-9 rounded-md border border-slate-300 bg-slate-50 px-2 text-sm text-slate-800 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
             disabled={mode === 'minify'}
             onChange={(event) => {
               setIndent(parseIndent(event.target.value));
@@ -103,7 +103,7 @@ export function JsonFormatter() {
         </label>
 
         <button
-          className={BUTTON_CLASS_NAME}
+          className={COPY_BUTTON_CLASS_NAME}
           disabled={!output}
           onClick={copy}
           type="button"
