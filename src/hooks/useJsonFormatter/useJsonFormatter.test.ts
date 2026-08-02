@@ -97,8 +97,14 @@ describe('useJsonFormatter', () => {
     expect(result.current.copied).toBe(false);
   });
 
-  it('does not mark as copied when the clipboard write fails', async () => {
-    const writeText = vi.fn().mockRejectedValue(new Error('denied'));
+  it('does not mark as copied and logs the error when the clipboard write fails', async () => {
+    const consoleErrorSpy = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {
+        // suppress expected console output during this test
+      });
+    const clipboardError = new Error('denied');
+    const writeText = vi.fn().mockRejectedValue(clipboardError);
     mockClipboard(writeText);
 
     const { result } = renderHook(() => useJsonFormatter());
@@ -113,6 +119,12 @@ describe('useJsonFormatter', () => {
     });
 
     expect(result.current.copied).toBe(false);
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      'Failed to copy to clipboard:',
+      clipboardError,
+    );
+
+    consoleErrorSpy.mockRestore();
   });
 
   it('clears the pending timeout on unmount', async () => {

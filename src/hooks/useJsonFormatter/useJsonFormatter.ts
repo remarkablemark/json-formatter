@@ -59,8 +59,9 @@ export function useJsonFormatter(): UseJsonFormatterResult {
           setCopied(false);
         }, COPIED_TIMEOUT_MS);
       })
-      .catch(() => {
-        // Silently ignore clipboard failures (e.g. permission denied).
+      .catch((error: unknown) => {
+        // eslint-disable-next-line no-console
+        console.error('Failed to copy to clipboard:', error);
       });
   }
 
