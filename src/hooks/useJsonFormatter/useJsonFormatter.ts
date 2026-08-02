@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { formatJson, minifyJson } from 'src/utils/formatJson';
+import {
+  formatJson,
+  type JsonFormatterIndent,
+  minifyJson,
+} from 'src/utils/formatJson';
 
-export type JsonFormatterIndent = 2 | 4 | 'tab';
 export type JsonFormatterMode = 'format' | 'minify';
 
 const COPIED_TIMEOUT_MS = 2_000;

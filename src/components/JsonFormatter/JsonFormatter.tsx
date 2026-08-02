@@ -5,9 +5,9 @@ import {
   oneDark,
   oneLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import type { JsonFormatterIndent } from 'src/hooks/useJsonFormatter';
 import { useJsonFormatter } from 'src/hooks/useJsonFormatter';
 import { usePrefersDarkMode } from 'src/hooks/usePrefersDarkMode';
+import type { JsonFormatterIndent } from 'src/utils/formatJson';
 
 SyntaxHighlighter.registerLanguage('json', json);
 

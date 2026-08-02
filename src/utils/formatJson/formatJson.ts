@@ -1,13 +1,14 @@
 import { getJsonErrorMessage } from './parseJsonError';
 
 export type FormatJsonResult = { error: string } | { output: string };
+export type JsonFormatterIndent = 2 | 4 | 'tab';
 
 /**
  * Parses and re-serializes JSON with the given indentation.
  */
 export function formatJson(
   input: string,
-  indent: 2 | 4 | 'tab',
+  indent: JsonFormatterIndent,
 ): FormatJsonResult {
   try {
     const parsed: unknown = JSON.parse(input);

@@ -1,5 +1,4 @@
 export type {
-  JsonFormatterIndent,
   JsonFormatterMode,
   UseJsonFormatterResult,
 } from './useJsonFormatter';
