@@ -4,9 +4,11 @@
 [![test](https://github.com/remarkablemark/json-formatter/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/json-formatter/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/json-formatter/graph/badge.svg?token=oFtcFrciTD)](https://codecov.io/gh/remarkablemark/json-formatter)
 
-📝 JSON formatter:
+📝 Format, minify, and validate JSON:
 
-- [Format JSON](https://remarkablemark.org/json-formatter/)
+- [JSON Formatter](https://remarkablemark.org/json-formatter/)
+
+Paste JSON to format (with a choice of 2/4-space or tab indentation) or minify it, with live validation errors, syntax-highlighted output, and a copy-to-clipboard button.
 
 ## Install
 
