@@ -142,12 +142,12 @@ export function JsonFormatter() {
             Output
           </span>
           <div
-            className="min-h-64 flex-1 overflow-auto rounded-md border border-slate-300 text-left dark:border-slate-700"
+            className="flex min-h-64 flex-1 flex-col overflow-auto rounded-md border border-slate-300 text-left dark:border-slate-700"
             data-testid="json-output"
           >
             {output && (
               <SyntaxHighlighter
-                customStyle={{ margin: 0, minHeight: '100%' }}
+                customStyle={{ flex: 1, margin: 0 }}
                 language="json"
                 style={prefersDark ? oneDark : oneLight}
               >
