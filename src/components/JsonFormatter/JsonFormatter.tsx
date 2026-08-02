@@ -12,7 +12,19 @@ import type { JsonFormatterIndent } from 'src/utils/formatJson';
 SyntaxHighlighter.registerLanguage('json', json);
 
 const BUTTON_CLASS_NAME =
-  'cursor-pointer rounded-md border border-slate-300 bg-slate-50 px-4 py-2 text-center text-sm font-medium text-slate-800 shadow-xs transition-all hover:border-slate-800 focus:border-slate-800 focus:bg-slate-50 active:border-slate-800 active:bg-slate-50 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-500 dark:focus:border-slate-500 dark:focus:bg-slate-800 dark:active:border-slate-500 dark:active:bg-slate-800';
+  'flex h-9 cursor-pointer items-center justify-center rounded-md border border-slate-300 bg-slate-50 px-4 text-center text-sm font-medium text-slate-800 shadow-xs transition-all hover:border-slate-800 focus:border-slate-800 focus:bg-slate-50 active:border-slate-800 active:bg-slate-50 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-500 dark:focus:border-slate-500 dark:focus:bg-slate-800 dark:active:border-slate-500 dark:active:bg-slate-800';
+
+const SEGMENT_BUTTON_CLASS_NAME =
+  'flex cursor-pointer items-center justify-center px-4 text-center text-sm font-medium transition-colors';
+
+function segmentButtonClassName(active: boolean): string {
+  return [
+    SEGMENT_BUTTON_CLASS_NAME,
+    active
+      ? 'bg-white text-slate-900 dark:bg-slate-700 dark:text-slate-100'
+      : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700',
+  ].join(' ');
+}
 
 const INDENT_OPTIONS: { label: string; value: JsonFormatterIndent }[] = [
   { label: '2 spaces', value: 2 },
@@ -49,10 +61,10 @@ export function JsonFormatter() {
       <h1 className="my-6 text-4xl font-bold">JSON Formatter</h1>
 
       <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
-        <div className="flex gap-2">
+        <div className="flex h-9 divide-x divide-slate-300 overflow-hidden rounded-md border border-slate-300 dark:divide-slate-700 dark:border-slate-700">
           <button
             aria-pressed={mode === 'format'}
-            className={BUTTON_CLASS_NAME}
+            className={segmentButtonClassName(mode === 'format')}
             onClick={() => {
               setMode('format');
             }}
@@ -62,7 +74,7 @@ export function JsonFormatter() {
           </button>
           <button
             aria-pressed={mode === 'minify'}
-            className={BUTTON_CLASS_NAME}
+            className={segmentButtonClassName(mode === 'minify')}
             onClick={() => {
               setMode('minify');
             }}
@@ -75,7 +87,7 @@ export function JsonFormatter() {
         <label className="flex items-center gap-2 text-sm font-medium text-slate-800 dark:text-slate-200">
           Indent
           <select
-            className="rounded-md border border-slate-300 bg-slate-50 px-2 py-1 text-sm text-slate-800 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+            className="h-9 rounded-md border border-slate-300 bg-slate-50 px-2 text-sm text-slate-800 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
             disabled={mode === 'minify'}
             onChange={(event) => {
               setIndent(parseIndent(event.target.value));
