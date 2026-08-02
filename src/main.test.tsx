@@ -8,6 +8,13 @@ vi.mock('react-dom/client', () => ({
   })),
 }));
 
+// Avoid transforming/instrumenting the real App (and its dependencies, e.g.
+// react-syntax-highlighter) here, since this test only exercises the
+// createRoot/render wiring; App itself is covered by App.test.tsx.
+vi.mock('./components/App', () => ({
+  App: () => null,
+}));
+
 const mockCreateRoot = vi.mocked(createRoot);
 
 beforeAll(() => {
