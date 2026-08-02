@@ -1,18 +1,20 @@
-# vite-react-tailwind-template
+# JSON Formatter
 
-[![build](https://github.com/remarkablemark/vite-react-tailwind-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/vite-react-tailwind-template/actions/workflows/build.yml)
-[![test](https://github.com/remarkablemark/vite-react-tailwind-template/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/vite-react-tailwind-template/actions/workflows/test.yml)
+[![build](https://github.com/remarkablemark/json-formatter/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/json-formatter/actions/workflows/build.yml)
+[![test](https://github.com/remarkablemark/json-formatter/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/json-formatter/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/json-formatter/graph/badge.svg?token=oFtcFrciTD)](https://codecov.io/gh/remarkablemark/json-formatter)
 
-⚡ Vite React Tailwind Template
+📝 JSON formatter:
+
+- [Format JSON](https://remarkablemark.org/json-formatter/)
 
 ## Install
 
 Clone the repository:
 
 ```sh
-git clone https://github.com/remarkablemark/vite-react-tailwind-template.git
-cd vite-react-tailwind-template
+git clone https://github.com/remarkablemark/json-formatter.git
+cd json-formatter
 ```
 
 Install the dependencies:

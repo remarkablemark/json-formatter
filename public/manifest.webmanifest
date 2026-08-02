@@ -1,7 +1,7 @@
 {
-  "name": "Vite React Tailwind Template",
-  "short_name": "Vite React Tailwind Template",
-  "description": "Vite React Tailwind Template",
+  "name": "JSON Formatter",
+  "short_name": "JSON Formatter",
+  "description": "JSON Formatter",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
